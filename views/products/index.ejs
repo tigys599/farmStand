@@ -1,27 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('includes/head') %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
-</head>
 
-<body>
-    <h1>All Products</h1>
 
-    <ul>
 
-        <% for(let pro of products){ %>
-            <li>
-                <a href="/products/<%= pro._id %> ">
-                    <%= pro.name %>
-                </a>
-            </li>
-            <% } %>
-    </ul>
-    <a href="/new">Add New Product</a>
-</body>
 
-</html>
+    <div class="box block container column is-one-third is-small">
+        <h1 class="title">All Products</h1>
+        <div class="card-content ">
+            <div class="content ">
+                <ul>
+
+                    <% for(let pro of products){ %>
+                        <li class="is-5">
+                            <a href="/products/<%= pro._id %> ">
+                                <%= pro.name %>
+                            </a>
+                        </li>
+                        <% } %>
+                </ul>
+            </div>
+        </div>
+        <div class="card-footer">
+            <a class="card-footer-item button is-light" href="/new">Add New Product</a>
+        </div>
+    </div>
+
+
+
+
+    <%- include('includes/footer') %>

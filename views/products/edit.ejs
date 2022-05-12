@@ -1,33 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('includes/head') %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Product</title>
-</head>
+    <div class="box container section column is-one-third section is-small">
+        <h1 class="title">Edit New Product</h1>
 
-<body>
-    <h1>Edit New Product</h1>
-    <form method='POST' action="/products/<%= products._id %>/edit/?_method=PATCH">
-        <label for="name">Product Name:</label>
-        <input type="text" name="name" id="name" value="<%= products.name %> " required>
-        <label for="number">Enter price: $</label>
-        <input type="number" name="price" id="price" min="0" max="100" step="0.01"
-            placeholder=" <%= products.price %>  ">
-        <label for="category">Select Category:</label>
-        <select name="category" id="category">
-            <% for(cat of category){ %>
-                <option value="<%= cat %>" <%=products.category===cat ? 'selected' : '' %> ><%= cat %>
-                </option>
-                <% } %>
+        <form method='POST' action="/products/<%= products._id %>/edit/?_method=PATCH">
 
+            <div class="field">
+                <label for="name">Product Name:</label>
+                <input class="input" type="text" name="name" id="name" value="<%= products.name %>" required>
+            </div>
+            <div class="field">
+                <label for="number">Enter price: $</label>
+                <input class="input" type="number" name="price" id="price" min="0" max="100" step="0.01"
+                    value="<%= products.price %>">
+            </div>
+            <div class="field">
+                <label for="category">Select Category:</label>
+                <select class="input" name="category" id="category">
+                    <% for(cat of category){ %>
+                        <option value="<%= cat %>" <%=products.category===cat ? 'selected' : '' %> ><%= cat %>
+                        </option>
+                        <% } %>
 
-        </select>
-        <button>Submit</button>
-    </form>
-    <a href="/products">Home</a>
-</body>
+                </select>
+            </div>
+            <button class='button block is-light'>Submit</button>
+            <a class='button is-light block' href="/products">Home</a>
+        </form>
 
-</html>
+    </div>
+    <%- include('includes/footer') %>

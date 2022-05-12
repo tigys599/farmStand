@@ -8,6 +8,8 @@ const methodOverride = require('method-override')
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(methodOverride('_method'))
+app.set('view engine', 'ejs')
+
 main().catch(err => console.log(err));
 
 async function main() {
@@ -33,8 +35,11 @@ app.get('/products', async (req, res) => {
 
 app.get('/products/:id', async (req, res) => {
     const { id } = req.params
-    const product = await Product.findById(id)
-    res.render('products/show', { product })
+
+    const products = await Product.findById(id)
+
+    res.render('products/show', { products })
+
 })
 
 app.get('/new', (req, res) => {
@@ -67,8 +72,8 @@ app.delete('/products/:id/delete', async (req, res) => {
 
 app.get('/products/:id/delete', async (req, res) => {
     const { id } = req.params
-    const product = await Product.findById(id)
-    res.render('products/delete', { product })
+    const products = await Product.findById(id)
+    res.render('products/delete', { products })
 })
 
 app.listen(3000, () => {

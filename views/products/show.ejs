@@ -1,34 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('includes/head') %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <%= product.name %>
-    </title>
-</head>
+    <section class="container section box column is-one-third">
+        <h1 class="title">
+            <%= products.name %>
+        </h1>
+        <ul class="card-content title is-4">
+            <li>$<%= products.price %>
+            </li>
+            <li>
+                <%= products.category %>
+            </li>
+            <div class="container column">
 
-<body>
-    <h1>
-        <%= product.name %>
-    </h1>
-    <ul>
-        <li>$<%= product.price %>
-        </li>
-        <li>
-            <%= product.category %>
-        </li>
+            </div>
 
-        <a href="/products/<%= product._id %>/edit/">Edit</a>
-        <form action="/products/<%= product._id %>/delete/">
-            <button>Delete</button>
-        </form>
 
-    </ul>
+        </ul>
 
-    <a href="/products">All Products</a>
-</body>
-
-</html>
+        <div class="card">
+            <footer class="card-footer">
+                <a class="card-footer-item" href=" /products/<%=products._id %>/edit/">Edit</a>
+                <a class="card-footer-item" href="/products/<%= products._id %>/delete/">Delete</a>
+                <a class="card-footer-item" href="/products">All Products</a>
+            </footer>
+        </div>
+        <%- include('includes/footer') %>
+    </section>
