@@ -22,6 +22,10 @@ const category = ['fruit', 'vegetables', 'dairy']
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'))
 
+app.get('/', (req, res) => {
+    res.redirect('products')
+})
+
 app.get('/products', async (req, res) => {
     const products = await Product.find({})
     res.render('products/index', { products })
