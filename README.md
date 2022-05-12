@@ -1,5 +1,10 @@
 # farmStand
 Learning the basics of MongoDB
+
+Having mongoDB downloaded is required for this to work!
+
+the default listening port is set to 3000, but can be changed in the index.js file in the root folder of the application.
+
 To use this interface run the 'npm install' command from in the dir the with the package.json file
 
 
